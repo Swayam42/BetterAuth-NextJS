@@ -23,6 +23,33 @@
   border-radius: 4px;
 }
 
+.auth-input-error {
+  padding: 0.75rem;
+  border: 2px solid red;
+  background-color: rgb(122, 40, 40,0.2);
+  border-radius: 4px;
+}
+
+.auth-input-success {
+  padding: 0.75rem;
+  border: 2px solid rgb(39, 135, 39);
+  background-color: rgb(55, 119, 55,0.2);
+  border-radius: 4px;
+}
+
+.password-message {
+  font-size: 0.875rem;
+  margin-top: -0.5rem;
+}
+
+.password-error {
+  color: red;
+}
+
+.password-success {
+  color: green;
+}
+
 .auth-button {
   padding: 0.75rem;
   border: none;
@@ -48,4 +75,20 @@
   background-color: #fff;
   color: black;
   cursor: pointer;
+}
+
+.terms-text {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.terms-link {
+  color: #2c6f8b;
+  text-decoration: none;
+}
+
+.terms-link:hover {
+  text-decoration: underline;
 }

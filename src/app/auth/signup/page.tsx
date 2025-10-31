@@ -10,9 +10,17 @@ const SignUpPage = ()=>{
     const [name,setName]=useState('');
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
+    const [confirmPassword, setConfirmPassword]=useState('');
+
+    const passwordMatch = password == confirmPassword && confirmPassword !='';
+    const passwordsDontMatch = confirmPassword !== '' && !passwordMatch;
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
+        if (password !== confirmPassword) {
+            alert("Passwords don't match!");
+            return;
+        }
         const { data, error } = await authClient.signUp.email({
             name: name,
             email: email,
@@ -72,16 +80,43 @@ const handleGitHubSignUp =async ()=>{
                 placeholder="Password"
                 className="auth-input"
                  />
+                 <input 
+                type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                placeholder="Confirm Password"
+                className={
+                    passwordsDontMatch ? "auth-input-error" : 
+                    passwordMatch ? "auth-input-success" : 
+                    "auth-input"
+                }
+                 />
+                 {passwordsDontMatch && (
+                    <span className="password-message password-error">
+                        Passwords don&apos;t match!
+                    </span>
+                 )}
+                 {passwordMatch && (
+                    <span className="password-message password-success">
+                        Passwords match 
+                    </span>
+                 )}
                 <button type="submit" className="auth-button">
                     Sign Up
                 </button>
                 <div className="auth-divider">OR</div>
                 <button type="button" onClick={handleGoogleSignUp} className="social-button">
-                    <FcGoogle size={20} /> Sign Up with Google
+                    <FcGoogle size={20} />Continue with Google
                 </button>
                 <button type="button" onClick={handleGitHubSignUp} className="social-button">
-                    <FaGithub size={20} /> Sign Up with GitHub
+                    <FaGithub size={20} />Continue with GitHub
                 </button>
+                <p className="terms-text">
+                    By continuing, you agree to our{' '}
+                    <a href="/terms" className="terms-link">Terms of Service</a>
+                    {' '}and{' '}
+                    <a href="/privacy" className="terms-link">Privacy Policy</a>
+                </p>
             </form>
         </div>
     )
