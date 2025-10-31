@@ -2,7 +2,9 @@
 import React, { useEffect, useState } from "react";
 import { authClient } from "@/lib/auth-client";
 import { redirect } from "next/navigation";
+import { FcGoogle } from 'react-icons/fc';
 import '../auth.css';
+
 
 const SignInPage = ()=>{
     const [email,setEmail]=useState('');
@@ -31,6 +33,13 @@ const SignInPage = ()=>{
     });
     console.log('data',data);
 }
+
+const handleGoogleSignIn = async ()=>{
+    const data = await authClient.signIn.social({
+    provider: "google",
+  });
+  console.log(data);
+}
     return(
         <div className="auth-container">
             <form onSubmit={handleSubmit} className="auth-form">
@@ -52,6 +61,11 @@ const SignInPage = ()=>{
                 <button type="submit" className="auth-button">
                     Sign In
                 </button>
+                <div className="auth-divider">OR</div>
+                <button type="button" onClick={handleGoogleSignIn} className="social-button">
+                <FcGoogle size={20} /> Sign in with Google
+                </button>
+
             </form>
         </div>
     )
