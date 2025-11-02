@@ -14,27 +14,50 @@
 
 .auth-title {
   text-align: center;
-  margin-bottom: 1rem;
 }
 
 .auth-input {
   padding: 0.75rem;
-  border: 1px solid #ccc;
   border-radius: 4px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.auth-button {
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  background-color: rgba(16, 83, 182, 0.7);
+}
+
+.auth-divider {
+  text-align: center;
+}
+
+.social-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  cursor: pointer;
 }
 
 .auth-input-error {
   padding: 0.75rem;
-  border: 2px solid red;
-  background-color: rgb(122, 40, 40,0.2);
   border-radius: 4px;
+  border: 2px solid red;
+  outline: none;
 }
 
 .auth-input-success {
   padding: 0.75rem;
-  border: 2px solid rgb(39, 135, 39);
-  background-color: rgb(55, 119, 55,0.2);
   border-radius: 4px;
+  border: 2px solid green;
+  outline: none;
 }
 
 .password-message {
@@ -50,33 +73,6 @@
   color: green;
 }
 
-.auth-button {
-  padding: 0.75rem;
-  border: none;
-  border-radius: 4px;
-  background-color: #2c6f8b;
-  color: #fff;
-  cursor: pointer;
-}
-
-.auth-divider {
-  text-align: center;
-  color: #666;
-}
-
-.social-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: #fff;
-  color: black;
-  cursor: pointer;
-}
-
 .terms-text {
   text-align: center;
   font-size: 0.75rem;
@@ -85,10 +81,80 @@
 }
 
 .terms-link {
-  color: #2c6f8b;
+  color: rgb(16, 83, 182);
   text-decoration: none;
 }
 
 .terms-link:hover {
   text-decoration: underline;
+}
+
+/* Phone Input - Make it look like a single unified input */
+.phone-input {
+  width: 100%;
+  position: relative;
+}
+
+.PhoneInput {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.75rem;
+  background: rgb(0, 0, 0);
+}
+
+.PhoneInput:focus-within {
+  border-color: #000;
+  outline: none;
+}
+
+.PhoneInputCountry {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin-right: 0.5rem;
+}
+
+.PhoneInputCountrySelect {
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 1rem;
+  background-color: rgb(0, 0, 0);
+}
+
+.PhoneInputCountryIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 2px;
+}
+
+.PhoneInputInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0;
+  font-size: 1rem;
+  background: transparent;
+}
+
+.PhoneInputInput::placeholder {
+  color: #999;
+}
+
+.phone-message {
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+.phone-error {
+  color: red;
+}
+.phone-success {
+  color: green;
 }
