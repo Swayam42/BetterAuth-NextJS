@@ -15,6 +15,7 @@ const DashboardPage=async ()=>{
         <div>
             Welcome,{session.user.name}!</div>
     )
+     console.log(session);
 }
 
 export default DashboardPage

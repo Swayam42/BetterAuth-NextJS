@@ -2,12 +2,15 @@
 import React from "react";
 import { authClient } from "@/lib/auth-client";
 import { redirect } from "next/navigation";
+//import {useRouter} from "next/navigation";
 const Logout = () =>{
+  //const router=useRouter();
     async function handleLogout(){
         await authClient.signOut({
   fetchOptions: {
     onSuccess: () => {
-      redirect('/auth/signin');
+     //router.push('/auth/signin');
+     redirect('/auth/signin');
     },
   },
 });
